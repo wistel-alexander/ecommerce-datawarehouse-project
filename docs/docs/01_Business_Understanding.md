@@ -108,3 +108,27 @@ Al finalizar el proyecto se dispondrá de:
 
 Este proyecto busca aplicar buenas prácticas de ingeniería de datos, arquitectura de datos y análisis de información, simulando un entorno real de desarrollo empresarial.
 491257163
+
+---
+
+# 9. Alcance del Proyecto
+
+Este proyecto contempla:
+
+Diseño del modelo OLTP.
+Diseño del Data Warehouse.
+Desarrollo del proceso ETL.
+Implementación en SQL Server.
+Construcción de dashboards en Power BI.
+
+# 10. Preguntas de negocio
+
+El Data Warehouse permitirá responder preguntas como:
+
+¿Qué productos generan mayores ingresos?
+¿Qué estados tienen mayor volumen de ventas?
+¿Qué vendedores venden más?
+¿Cuál es el método de pago más utilizado?
+¿Cómo evolucionan las ventas mes a mes?
+¿Cuál es la satisfacción promedio de los clientes?
+¿Qué categorías presentan mayor crecimiento?
