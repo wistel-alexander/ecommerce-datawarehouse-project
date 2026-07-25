@@ -3,3 +3,4 @@ sqlalchemy
 pyodbc
 python-docx
 kagglehub
+tabulate

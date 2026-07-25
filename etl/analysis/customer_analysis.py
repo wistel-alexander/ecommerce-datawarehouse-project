@@ -1,6 +1,6 @@
 import pandas as pd
 
-from config import RAW_DATA_DIR
+from utils.data_loader import load_dataset
 from utils.report_generator import generate_markdown_report
 from utils.console import print_section, print_subsection
 from utils.metrics import print_metric
@@ -14,8 +14,8 @@ def analyze_customers():
     """
 
     # Load dataset
-    customers = pd.read_csv(
-        RAW_DATA_DIR / "olist_customers_dataset.csv"
+    customers = load_dataset(
+    "olist_customers_dataset.csv"
     )
 
     # Unique values
