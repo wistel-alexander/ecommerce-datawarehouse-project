@@ -8,6 +8,9 @@ Purpose : Populate Date Dimension
 */
 
 CREATE OR ALTER PROCEDURE etl.usp_Load_DimDate
+
+    @BatchID UNIQUEIDENTIFIER
+
 AS
 BEGIN
 

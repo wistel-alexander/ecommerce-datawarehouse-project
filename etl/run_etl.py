@@ -38,15 +38,15 @@ def run_etl():
 
     warehouse_processes = [
 
-        "etl.usp_Load_DimDate",
+        ("etl.usp_Load_DimDate", True),
 
-        "etl.usp_Load_DimCustomer",
+        ("etl.usp_Load_DimCustomer", True),
 
-        "etl.usp_Load_DimProduct",
+        ("etl.usp_Load_DimProduct", True),
 
-        "etl.usp_Load_DimSeller",
+        ("etl.usp_Load_DimSeller", True),
 
-        "etl.usp_Load_FactSales"
+        ("etl.usp_Load_FactSales", True)
 
     ]
 

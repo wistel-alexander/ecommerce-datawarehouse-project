@@ -7,6 +7,9 @@ Purpose : Load Seller Dimension (SCD Type 1)
 */
 
 CREATE OR ALTER PROCEDURE etl.usp_Load_DimSeller
+
+    @BatchID UNIQUEIDENTIFIER
+
 AS
 BEGIN
 

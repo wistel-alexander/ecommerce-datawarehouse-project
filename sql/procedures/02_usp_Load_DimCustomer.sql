@@ -7,6 +7,9 @@ Purpose : Load Customer Dimension (SCD Type 1)
 */
 
 CREATE OR ALTER PROCEDURE etl.usp_Load_DimCustomer
+
+    @BatchID UNIQUEIDENTIFIER
+
 AS
 BEGIN
 
