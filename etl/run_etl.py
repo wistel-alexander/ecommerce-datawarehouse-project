@@ -46,7 +46,7 @@ def run_etl():
 
         "etl.usp_Load_DimSeller",
 
-        # "etl.usp_Load_FactSales"
+        "etl.usp_Load_FactSales"
 
     ]
 
