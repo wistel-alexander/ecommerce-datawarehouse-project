@@ -6,20 +6,16 @@ Purpose : Execute SQL Server Stored Procedures
 ===========================================================
 """
 
+import time
+
 from sqlalchemy import text
 
 from etl.config.database import engine
 
 
 def execute_procedure(procedure_name: str) -> None:
-    """
-    Execute a SQL Server stored procedure.
 
-    Parameters
-    ----------
-    procedure_name : str
-        Stored procedure name (Example: dw.usp_Load_DimCustomer)
-    """
+    start = time.perf_counter()
 
     print("\n" + "=" * 60)
     print(f"Executing: {procedure_name}")
@@ -33,11 +29,14 @@ def execute_procedure(procedure_name: str) -> None:
                 text(f"EXEC {procedure_name}")
             )
 
-        print(f"SUCCESS: {procedure_name}")
+        elapsed = time.perf_counter() - start
+
+        print(f"SUCCESS : {procedure_name}")
+        print(f"Execution Time : {elapsed:.2f} seconds")
 
     except Exception as error:
 
-        print(f"ERROR executing {procedure_name}")
+        print(f"ERROR : {procedure_name}")
         print(error)
 
         raise

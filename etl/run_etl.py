@@ -14,26 +14,32 @@ from etl.execute_procedure import execute_procedure
 
 def run_etl():
 
-    start_time = time.perf_counter()
+    start = time.perf_counter()
 
     print("\n")
     print("=" * 70)
     print("ECOMMERCE DATA WAREHOUSE ETL")
     print("=" * 70)
 
-    # ---------------------------------------------------------
-    # Load Staging Layer
-    # ---------------------------------------------------------
+    # --------------------------------------------------
+    # Load Staging
+    # --------------------------------------------------
+
     run_staging()
 
-    # ---------------------------------------------------------
+    # --------------------------------------------------
     # Load Data Warehouse
-    # ---------------------------------------------------------
+    # --------------------------------------------------
+
     warehouse_processes = [
 
-        "dw.usp_Load_DimDate",
+        "etl.usp_Load_DimDate",
 
-        "dw.usp_Load_DimCustomer",
+        "etl.usp_Load_DimCustomer",
+        
+        "etl.usp_Load_DimProduct",
+        
+        "etl.usp_Load_DimSeller"
 
     ]
 
@@ -46,7 +52,7 @@ def run_etl():
 
         execute_procedure(procedure)
 
-    elapsed = time.perf_counter() - start_time
+    elapsed = time.perf_counter() - start
 
     print("\n")
     print("=" * 70)
