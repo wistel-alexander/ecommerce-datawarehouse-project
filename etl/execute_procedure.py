@@ -6,37 +6,50 @@ Purpose : Execute SQL Server Stored Procedures
 ===========================================================
 """
 
-import time
-
 from sqlalchemy import text
 
 from etl.config.database import engine
 
 
-def execute_procedure(procedure_name: str) -> None:
+def execute_procedure(procedure_name, parameters=None):
+    """
+    Execute a SQL Server stored procedure.
 
-    start = time.perf_counter()
+    Parameters
+    ----------
+    procedure_name : str
+        Stored procedure name.
 
-    print("\n" + "=" * 60)
-    print(f"Executing: {procedure_name}")
-    print("=" * 60)
+    parameters : dict, optional
+        Dictionary containing stored procedure parameters.
+    """
 
-    try:
+    parameters = parameters or {}
 
-        with engine.begin() as connection:
+    placeholders = ", ".join(
 
-            connection.execute(
-                text(f"EXEC {procedure_name}")
-            )
+        f"@{key}=:{key}"
 
-        elapsed = time.perf_counter() - start
+        for key in parameters.keys()
 
-        print(f"SUCCESS : {procedure_name}")
-        print(f"Execution Time : {elapsed:.2f} seconds")
+    )
 
-    except Exception as error:
+    sql = (
 
-        print(f"ERROR : {procedure_name}")
-        print(error)
+        f"EXEC {procedure_name} {placeholders}"
 
-        raise
+        if placeholders
+
+        else f"EXEC {procedure_name}"
+
+    )
+
+    with engine.begin() as connection:
+
+        connection.execute(
+
+            text(sql),
+
+            parameters
+
+        )
