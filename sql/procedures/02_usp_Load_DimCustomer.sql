@@ -6,7 +6,7 @@ Purpose : Load Customer Dimension (SCD Type 1)
 ===========================================================
 */
 
-CREATE OR ALTER PROCEDURE dw.usp_Load_DimCustomer
+CREATE OR ALTER PROCEDURE etl.usp_Load_DimCustomer
 AS
 BEGIN
 
