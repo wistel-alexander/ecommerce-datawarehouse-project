@@ -78,3 +78,37 @@ SELECT TOP 20
     TotalSales
 FROM dw.vw_TopCustomers
 ORDER BY TotalOrders DESC;
+
+-------------------------------------------------
+
+USE EcommerceDW;
+GO
+
+SELECT TOP 20 *
+FROM dw.vw_TopSellers
+ORDER BY TotalSales DESC;
+
+SELECT TOP 20
+    SellerID,
+    SellerCity,
+    SellerState,
+    TotalOrders,
+    TotalUnits,
+    TotalSales
+FROM dw.vw_TopSellers
+ORDER BY TotalOrders DESC;
+
+--------------------------------------------------
+
+SELECT
+    MIN(FullDate) AS FirstSaleDate,
+    MAX(FullDate) AS LastSaleDate
+FROM dw.vw_FactSales;
+
+
+SELECT
+    OrderStatus,
+    COUNT(DISTINCT OrderID) AS TotalOrders
+FROM dw.vw_FactSales
+GROUP BY OrderStatus
+ORDER BY TotalOrders DESC;
