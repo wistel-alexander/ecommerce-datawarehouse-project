@@ -1,6 +1,11 @@
+USE EcommerceDW;
+GO
 SELECT TOP 20 *
 FROM dw.vw_FactSales;
 
+
+USE EcommerceDW;
+GO
 SELECT
     COUNT(*) AS TotalRows,
     SUM(Quantity) AS TotalQuantity,
@@ -11,6 +16,8 @@ FROM dw.vw_FactSales;
 
 -----------------------------------------------
 
+USE EcommerceDW;
+GO
 SELECT DB_NAME() AS CurrentDatabase;
 
 
@@ -19,7 +26,8 @@ SELECT *
 FROM dw.vw_SalesByCategory
 ORDER BY TotalSales DESC;
 
-
+USE EcommerceDW;
+GO
 SELECT
     COUNT(*) AS TotalCategories,
     SUM(TotalOrders) AS Orders,
@@ -39,6 +47,9 @@ SELECT *
 FROM dw.vw_SalesByMonth
 ORDER BY Year, Month;
 
+
+USE EcommerceDW;
+GO
 SELECT
     COUNT(*) AS TotalStates,
     SUM(TotalUnits) AS TotalUnits,
@@ -68,7 +79,8 @@ FROM dw.vw_TopCustomers
 ORDER BY TotalSales DESC;
 
 
-
+USE EcommerceDW;
+GO
 SELECT TOP 20
     CustomerUniqueID,
     CustomerCity,
@@ -88,6 +100,9 @@ SELECT TOP 20 *
 FROM dw.vw_TopSellers
 ORDER BY TotalSales DESC;
 
+
+USE EcommerceDW;
+GO
 SELECT TOP 20
     SellerID,
     SellerCity,
@@ -99,13 +114,17 @@ FROM dw.vw_TopSellers
 ORDER BY TotalOrders DESC;
 
 --------------------------------------------------
-
+USE EcommerceDW;
+GO
 SELECT
     MIN(FullDate) AS FirstSaleDate,
     MAX(FullDate) AS LastSaleDate
 FROM dw.vw_FactSales;
 
 
+
+USE EcommerceDW;
+GO
 SELECT
     OrderStatus,
     COUNT(DISTINCT OrderID) AS TotalOrders
