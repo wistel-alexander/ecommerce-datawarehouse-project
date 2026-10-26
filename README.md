@@ -11,7 +11,7 @@ Proyecto ETL y Data Warehouse utilizando:
 Para que este proyecto se ejecute en otra computadora, normalmente se necesita:
 
 Python 3.10 o superior
-Git para clonar el repositorio o carpeta con el proyecto
+Git para clonar el repositorio o carpeta con el proyecto: "https://github.com/wistel-alexander/ecommerce-datawarehouse-project.git"
 SQL Server instalado y funcionando localmente
 ODBC Driver 17 para SQL Server
 Entorno virtual de Python

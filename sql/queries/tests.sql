@@ -1,8 +1,3 @@
-USE EcommerceDW;
-GO
-SELECT TOP 20 *
-FROM dw.vw_FactSales;
-
 
 USE EcommerceDW;
 GO
